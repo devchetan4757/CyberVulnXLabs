@@ -1,4 +1,4 @@
-import logo from "../public/logo.jpg";
+import logo from "../static/logo.jpg";
 
 export default function Header({ solved }) {
   return (
