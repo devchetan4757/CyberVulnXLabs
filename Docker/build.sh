@@ -1,3 +1,3 @@
 #!/bin/bash
-cd frontend && npm install && npm run build
+cd frontend && pnpm install && pnpm run dev
 cd ../backend && pip install -r requirements.txt
