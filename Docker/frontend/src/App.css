@@ -1,0 +1,277 @@
+/* ======================
+   RESET
+====================== */
+:root {
+  --red: #c82026;
+  --black: #111111;
+  --white: #ffffff;
+  --border: #e5e5e5;
+  --text-secondary: #666666;
+  --card: #fafafa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
+}
+
+#root {
+  min-height: 100%;
+}
+
+/* ======================
+   ROOT LAYOUT
+====================== */
+
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 36px 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ======================
+   HEADER (blog-style spacing)
+====================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 0;
+  border-bottom: 2px solid #c82026;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.club-logo {
+  max-width: 340px;
+  width: 100%;
+  height: auto;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.lab-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #c82026;
+}
+
+.lab-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #444;
+  font-weight: 600;
+}
+
+.status-box {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #c82026;
+  border-radius: 4px;
+}
+
+/* ======================
+   LAB CONTENT WRAPPER
+   (this fixes spacing chaos)
+====================== */
+
+.lab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ======================
+   DOCKER INFO (blog style card)
+====================== */
+
+.docker-info {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  padding: 26px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.docker-info code {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.85em;
+  color: #c82026;
+}
+
+/* headings */
+.post-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #111;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+/* paragraphs (your blog system style) */
+.post-paragraph {
+  line-height: 1.9;
+  color: #222;
+  font-size: 0.98rem;
+}
+
+/* ======================
+   BUTTON
+====================== */
+
+.init-btn {
+  margin-top: 10px;
+  padding: 12px 18px;
+  background: #c82026;
+  color: white;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.init-btn:hover {
+  opacity: 0.9;
+}
+
+/* ======================
+   TERMINAL WRAPPER
+====================== */
+
+.lab-main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======================
+   TERMINAL CORE
+====================== */
+
+.terminal {
+  background: #0d0d0d;
+  border: 1px solid #2a2a2a;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-output {
+  height: 300px;
+  overflow-y: auto;
+  padding: 14px;
+
+  font-family: monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* terminal colors */
+.term-line { white-space: pre-wrap; }
+
+.term-out  { color: #4ade80; }
+.term-in   { color: #ffffff; }
+.term-sys  { color: #38bdf8; }
+.term-err  { color: #ef4444; }
+.term-flag { color: #fbbf24; font-weight: 700; }
+
+/* input row */
+.terminal-input-row {
+  display: flex;
+  padding: 12px 14px;
+  border-top: 1px solid #222;
+}
+
+.terminal-prompt {
+  color: #4ade80;
+  white-space: pre;
+}
+
+.prompt-symbol {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: white;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* ======================
+   FOOTER
+====================== */
+
+.footer {
+  margin-top: auto;
+  padding: 14px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  border-top: 1px solid #eee;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media (max-width: 768px) {
+  .app {
+    padding: 24px 14px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header-right {
+    align-items: flex-start;
+  }
+
+  .terminal-output {
+    height: 460px;
+  }
+
+  .post-title {
+    font-size: 1.3rem;
+  }
+}
