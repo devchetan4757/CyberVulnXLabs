@@ -1,0 +1,705 @@
+.demo-card{
+    margin-top:20px;
+    margin-bottom:25px;
+    padding:14px 16px;
+    background:#fafafa;
+    border:1px solid var(--border);
+    border-left:4px solid var(--red);
+    border-radius:6px;
+}
+
+.demo-title{
+    display:block;
+    text-align:left;
+    color:var(--red);
+    font-weight:700;
+    font-size:.95rem;
+    margin-bottom:10px;
+    margin-left: 30px;
+}
+
+.demo-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:6px 0;
+    font-size:.92rem;
+}
+
+.demo-row strong{
+    width:78px;
+    color:#555;
+    font-weight:600;
+}
+
+.demo-row code{
+    background:#fff;
+    border:1px solid var(--border);
+    padding:3px 8px;
+    border-radius:4px;
+    font-size:.9rem;
+    font-family:Consolas, monospace;
+    color:#222;
+}
+
+
+/* =====================================================
+   CYBERVULNX IDOR LAB
+   APP.CSS
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+:root{
+
+    --red:#c82026;
+    --red-dark:#a8161b;
+
+    --black:#111111;
+
+    --white:#ffffff;
+
+    --border:#e5e5e5;
+
+    --card:#fafafa;
+
+    --text:#222222;
+
+    --text-secondary:#666666;
+
+}
+
+body{
+
+    font-family:Inter,"Segoe UI",sans-serif;
+
+    background:var(--white);
+
+    color:var(--black);
+
+}
+
+#root{
+
+    min-height:100vh;
+
+}
+
+.app{
+
+   width: 100%;
+    max-width: 100%;
+    padding:40px 20px;
+}
+
+/* =====================================
+            HEADER
+===================================== */
+
+
+.header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    padding:20px 0;
+
+    margin-bottom:30px;
+
+    border-bottom:2px solid var(--red);
+
+}
+
+.header-left{
+
+    flex:1;
+
+    min-width:200px;
+
+}
+
+.club-logo{
+
+    width:100%;
+
+    max-width:270px;
+
+    height:auto;
+
+    display:block;
+
+}
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    flex-shrink:0;
+
+}
+
+.lab-title{
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+    color:var(--red);
+
+    white-space:nowrap;
+
+}
+
+.lab-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text-secondary);
+
+}
+
+.status-box{
+
+    width:22px;
+
+    height:22px;
+
+    border:2px solid var(--red);
+
+    border-radius:4px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.lab-status.solved{
+
+    color:var(--red);
+
+}
+
+.lab-status.solved .status-box{
+
+    background:var(--red);
+
+}
+
+.lab-status.solved .status-box::after{
+
+    content:"✓";
+
+    color:#fff;
+
+    font-weight:bold;
+
+}
+
+/* =====================================
+        INTRO
+===================================== */
+
+.login-intro{
+
+    margin-bottom:50px;
+
+}
+
+.intro-meta{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    color:var(--text-secondary);
+
+    font-size:.9rem;
+
+    margin-bottom:16px;
+
+}
+
+.intro-title{
+
+    font-size:2rem;
+
+    margin-bottom:18px;
+
+    line-height:1.3;
+    color:black;
+    font-weight:bold;
+
+}
+
+.intro-text{
+
+    color:var(--text);
+
+    line-height:1.9;
+
+    margin-bottom:18px;
+
+}
+
+/* =====================================
+      LOGIN SECTION
+===================================== */
+
+.login-section{
+
+    border-top:1px solid var(--border);
+
+    padding-top:35px;
+
+}
+
+.login-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:28px;
+
+}
+
+.login-header h3{
+
+    font-size:1.5rem;
+
+}
+
+/* =====================================
+      LOGIN FORM (card layout)
+===================================== */
+
+.login-form{
+
+    display:flex;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    margin-bottom:35px;
+
+    overflow:hidden;
+
+}
+
+.login-form-accent{
+
+    width:6px;
+
+    background:var(--red);
+
+    flex-shrink:0;
+
+}
+
+.login-form-body{
+
+    flex:1;
+
+    padding:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.input-group label{
+
+    display:block;
+
+    font-weight:600;
+
+    font-size:.85rem;
+
+    letter-spacing:.03em;
+
+    text-transform:uppercase;
+
+    color:var(--text-secondary);
+
+    margin-bottom:8px;
+
+}
+
+.input-wrapper{
+
+    display:flex;
+
+    align-items:center;
+
+    border:1px solid var(--border);
+
+    background:var(--white);
+
+    padding:0 13px;
+
+    transition:border-color .25s;
+
+}
+
+.input-wrapper:focus-within{
+
+    border-color:var(--red);
+
+}
+
+.input-icon{
+
+    color:var(--red);
+
+    display:flex;
+
+    align-items:center;
+
+    margin-right:10px;
+
+}
+
+.login-form input{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    padding:12px 0;
+
+    font-size:.96rem;
+
+    background:transparent;
+
+    color:var(--text);
+
+}
+
+.login-form button{
+
+    align-self:flex-start;
+
+    margin-top:4px;
+
+    padding:12px 28px;
+
+    border:none;
+
+    background:var(--red);
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:background .25s;
+
+}
+
+.login-form button:hover{
+
+    background:var(--red-dark);
+
+}
+
+/* =====================================
+      SERVER RESPONSE
+===================================== */
+
+.server-response{
+
+    margin-top:10px;
+
+}
+
+.server-response h4{
+
+    margin-bottom:14px;
+
+    font-size:1rem;
+
+}
+
+.response-box{
+
+    background:#121212;
+
+    color:#f1f1f1;
+
+    border-left:4px solid var(--red);
+
+    padding:18px;
+
+    border-radius:4px;
+
+    font-family:Consolas,Monaco,monospace;
+
+    line-height:1.8;
+
+    white-space:pre-wrap;
+
+    overflow-x:auto;
+
+}
+
+.response-success{
+
+    color:#53d769;
+
+    font-weight:600;
+
+}
+
+.response-error{
+
+    color:#ff7070;
+
+    font-weight:600;
+
+}
+
+.response-info{
+
+    color:#8cc8ff;
+
+}
+
+/* =====================================
+        SUCCESS BANNER
+===================================== */
+
+.success-banner{
+
+    border-left:4px solid var(--red);
+
+    background:#fff7f7;
+
+    padding:18px;
+
+    margin-bottom:25px;
+
+}
+
+.success-banner h3{
+
+    margin-bottom:8px;
+
+}
+
+.success-banner p{
+
+    color:#333;
+
+    line-height:1.7;
+
+}
+
+/* =====================================
+            BUTTONS
+===================================== */
+
+.reset-btn{
+
+    border:1px solid var(--border);
+
+    background:white;
+
+    padding:9px 16px;
+
+    cursor:pointer;
+
+    transition:.25s;
+    color: black;
+
+}
+
+.reset-btn:hover{
+
+    border-color:var(--red);
+
+    color:var(--red);
+
+}
+
+/* =====================================
+          FOOTER
+===================================== */
+
+.footer{
+
+    margin-top:60px;
+
+    padding-top:20px;
+
+    border-top:1px solid var(--border);
+
+    text-align:center;
+
+}
+
+.footer p{
+
+    color:var(--text-secondary);
+
+    font-size:.9rem;
+
+}
+
+/* =====================================
+          ANIMATIONS
+===================================== */
+
+@keyframes checkPop{
+
+    from{
+
+        transform:scale(.3);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+.lab-status.solved .status-box::after{
+
+    animation:checkPop .25s ease;
+
+}
+
+/* =====================================
+        RESPONSIVE
+===================================== */
+
+@media(max-width:768px){
+
+    .app{
+
+        padding:25px 15px;
+
+    }
+
+    .header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .header-right{
+
+        width:100%;
+
+        justify-content:flex-start;
+
+    }
+
+    .intro-title{
+
+        font-size:1.6rem;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .intro-title{
+
+        font-size:1.35rem;
+
+    }
+
+    .lab-title{
+
+        font-size:1.1rem;
+
+    }
+
+    .login-form{
+
+        flex-direction:column;
+
+    }
+
+    .login-form-accent{
+
+        width:100%;
+
+        height:6px;
+
+    }
+
+    .login-form button{
+
+        width:100%;
+
+        align-self:stretch;
+
+        text-align:center;
+
+    }
+
+}
