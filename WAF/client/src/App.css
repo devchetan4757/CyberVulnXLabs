@@ -1,0 +1,616 @@
+/* =====================================================
+   CYBERVULNX WAF BYPASS LAB
+   APP.CSS
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    overflow-x:hidden;
+    width:100%;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+:root{
+    --red:#c82026;
+    --red-dark:#a8161b;
+    --black:#111111;
+    --white:#ffffff;
+    --border:#e5e5e5;
+    --card:#fafafa;
+    --text:#222222;
+    --text-secondary:#666666;
+}
+
+body{
+    font-family:Inter,"Segoe UI",sans-serif;
+    background:var(--white);
+    color:var(--black);
+}
+
+#root{
+    min-height:100vh;
+    width:100%;
+}
+
+.app{
+    width:100%;
+    padding:40px 60px;
+}
+
+/* =====================================
+            HEADER
+===================================== */
+
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:15px;
+    padding:20px 0;
+    margin-bottom:30px;
+    border-bottom:2px solid var(--red);
+    width:100%;
+}
+
+.header-left{
+    flex:1;
+    min-width:200px;
+}
+
+.club-logo{
+    width:100%;
+    max-width:270px;
+    height:auto;
+    display:block;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+    flex-shrink:0;
+}
+
+.lab-title{
+    font-size:1.4rem;
+    font-weight:700;
+    color:var(--red);
+    white-space:nowrap;
+}
+
+.lab-status{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:.95rem;
+    font-weight:600;
+    color:var(--text-secondary);
+}
+
+.status-box{
+    width:22px;
+    height:22px;
+    border:2px solid var(--red);
+    border-radius:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.lab-status.solved{ color:var(--red); }
+.lab-status.solved .status-box{ background:var(--red); }
+.lab-status.solved .status-box::after{
+    content:"✓";
+    color:#fff;
+    font-weight:bold;
+}
+
+/* =====================================
+        INTRO
+===================================== */
+
+.login-intro{ margin-bottom:50px; }
+
+.intro-meta{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    color:var(--text-secondary);
+    font-size:.9rem;
+    margin-bottom:16px;
+}
+
+.intro-title{
+    font-size:2rem;
+    margin-bottom:18px;
+    line-height:1.3;
+    color:black;
+    font-weight:bold;
+}
+
+.intro-text{
+    color:var(--text);
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+.intro-text code{
+    background:#f4f4f4;
+    border:1px solid var(--border);
+    padding:2px 7px;
+    border-radius:4px;
+    font-family:Consolas,monospace;
+    font-size:.9em;
+    color:var(--red);
+}
+
+/* =====================================
+      LAB SECTION
+===================================== */
+
+.login-section{
+    border-top:1px solid var(--border);
+    padding-top:35px;
+}
+
+.login-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:28px;
+}
+
+.login-header h3{ font-size:1.5rem; }
+
+/* =====================================
+      STATUS CARD
+===================================== */
+
+.waf-status-card{
+    display:flex;
+    border:1px solid var(--border);
+    background:var(--card);
+    margin-bottom:35px;
+    overflow:hidden;
+}
+
+.waf-status-accent{
+    width:6px;
+    background:var(--red);
+    flex-shrink:0;
+}
+
+.waf-status-body{
+    flex:1;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.waf-status-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.waf-status-label{
+    font-weight:600;
+    font-size:.85rem;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--text-secondary);
+    min-width:110px;
+}
+
+.waf-status-value{
+    font-family:Consolas,monospace;
+    font-size:.95rem;
+    color:var(--text);
+    background:#fff;
+    border:1px solid var(--border);
+    padding:6px 14px;
+    border-radius:3px;
+}
+
+.waf-status-value.blocked{
+    color:#c0392b;
+    border-color:#f5c6c6;
+    background:#fff7f7;
+}
+
+.waf-status-value.allowed{
+    color:#27ae60;
+    border-color:#b2dfdb;
+    background:#f0faf4;
+}
+
+/* =====================================
+      RESPONSE
+===================================== */
+
+.login-response{ margin-top:10px; }
+
+.response-banner{
+    padding:18px 22px;
+    margin-bottom:20px;
+    border-left:4px solid var(--border);
+}
+
+.response-banner h3{
+    font-size:1rem;
+    margin-bottom:6px;
+}
+
+.response-banner p{
+    font-size:.9rem;
+    color:var(--text-secondary);
+    line-height:1.6;
+}
+
+.response-banner.success{
+    border-left-color:#27ae60;
+    background:#f0faf4;
+}
+
+.response-banner.success h3{ color:#27ae60; }
+
+.response-banner.error{
+    border-left-color:var(--red);
+    background:#fff7f7;
+}
+
+.response-banner.error h3{ color:var(--red); }
+
+/* =====================================
+      ACCOUNT CARD
+===================================== */
+
+.account-card{
+    border:1px solid var(--border);
+    overflow:hidden;
+}
+
+.account-header{
+    background:var(--black);
+    color:#fff;
+    padding:10px 18px;
+    font-size:.85rem;
+    font-weight:600;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+}
+
+/* =====================================
+      SUCCESS BANNER
+===================================== */
+
+.success-banner{
+    border-left:4px solid var(--red);
+    background:#fff7f7;
+    padding:18px;
+    margin-bottom:25px;
+}
+
+.success-banner h3{ margin-bottom:8px; }
+
+.success-banner p{
+    color:#333;
+    line-height:1.7;
+}
+
+/* =====================================
+      BUTTONS
+===================================== */
+
+.reset-btn{
+    border:1px solid var(--border);
+    background:white;
+    padding:9px 16px;
+    cursor:pointer;
+    transition:.25s;
+    color:black;
+}
+
+.reset-btn:hover{
+    border-color:var(--red);
+    color:var(--red);
+}
+
+/* =====================================
+      FOOTER
+===================================== */
+
+.footer{
+    margin-top:60px;
+    padding-top:20px;
+    border-top:1px solid var(--border);
+    text-align:center;
+}
+
+.footer p{
+    color:var(--text-secondary);
+    font-size:.9rem;
+}
+
+/* =====================================
+      ANIMATIONS
+===================================== */
+
+@keyframes checkPop{
+    from{ transform:scale(.3); opacity:0; }
+    to{ transform:scale(1); opacity:1; }
+}
+
+.lab-status.solved .status-box::after{
+    animation:checkPop .25s ease;
+}
+
+/* =====================================
+      ADMIN DASHBOARD
+===================================== */
+
+.admin-content{ padding:20px; }
+
+.admin-dashboard{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.admin-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding-bottom:12px;
+    border-bottom:1px solid #2a2a2a;
+}
+
+.admin-header h2{
+    margin:0;
+    font-size:1rem;
+    color:#f0f0f0;
+    font-weight:600;
+}
+
+.admin-badge{
+    background:#c0392b;
+    color:#fff;
+    font-size:.65rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    padding:3px 8px;
+    border-radius:3px;
+}
+
+.admin-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.admin-stat{
+    background:#1a1a1a;
+    border:1px solid #2a2a2a;
+    border-radius:6px;
+    padding:14px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.stat-label{
+    font-size:.7rem;
+    color:#888;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+}
+
+.stat-value{
+    font-size:1.1rem;
+    font-weight:700;
+    color:#f0f0f0;
+}
+
+.stat-value.green{ color:#2ecc71; }
+
+.stat-value.flag{
+    font-size:.82rem;
+    color:#e74c3c;
+    font-family:monospace;
+    letter-spacing:.04em;
+}
+
+/* =====================================
+      RESPONSIVE
+===================================== */
+
+@media(max-width:1024px){
+    .app{ padding:40px 40px; }
+}
+
+@media(max-width:768px){
+    .app{ padding:25px 20px; }
+
+    .header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .header-right{
+        width:100%;
+        justify-content:flex-start;
+    }
+
+    .intro-title{ font-size:1.6rem; }
+    .admin-grid{ grid-template-columns:1fr; }
+}
+
+@media(max-width:480px){
+    .app{ padding:20px 15px; }
+    .intro-title{ font-size:1.35rem; }
+    .lab-title{ font-size:1.1rem; }
+
+    .waf-status-card{ flex-direction:column; }
+    .waf-status-accent{ width:100%; height:6px; }
+}
+
+/* =====================================
+        FLAG SUBMIT FORM
+===================================== */
+
+.login-form{
+    display:flex;
+    border:1px solid var(--border);
+    background:var(--card);
+    overflow:hidden;
+    margin-top:30px;
+}
+
+.login-form-accent{
+    width:6px;
+    background:var(--red);
+    flex-shrink:0;
+}
+
+.login-form-body{
+    flex:1;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.input-group label{
+    font-size:.85rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--text-secondary);
+}
+
+.input-wrapper{
+    display:flex;
+    align-items:center;
+    border:1px solid var(--border);
+    background:#fff;
+    transition:.2s;
+}
+
+.input-wrapper:focus-within{
+    border-color:var(--red);
+}
+
+.input-icon{
+    width:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--red);
+    border-right:1px solid var(--border);
+    flex-shrink:0;
+}
+
+.input-wrapper input{
+    flex:1;
+    border:none;
+    outline:none;
+    background:transparent;
+    padding:14px 16px;
+    font-size:.95rem;
+    color:var(--text);
+    font-family:Consolas, monospace;
+    min-width:0;
+}
+
+.input-wrapper input::placeholder{
+    color:#999;
+}
+
+.login-form button{
+    align-self:flex-start;
+    border:none;
+    background:var(--red);
+    color:#fff;
+    padding:12px 24px;
+    font-size:.95rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.login-form button:hover:not(:disabled){
+    background:var(--red-dark);
+}
+
+.login-form button:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+}
+
+.login-form button:active{
+    transform:translateY(1px);
+}
+
+/* =====================================
+        RESPONSIVE
+===================================== */
+
+@media(max-width:768px){
+
+    .login-form-body{
+        padding:22px;
+    }
+
+    .login-form button{
+        width:100%;
+        justify-content:center;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .login-form{
+        flex-direction:column;
+    }
+
+    .login-form-accent{
+        width:100%;
+        height:6px;
+    }
+
+    .login-form-body{
+        padding:18px;
+    }
+
+    .input-icon{
+        width:42px;
+    }
+
+    .input-wrapper input{
+        padding:12px;
+        font-size:.9rem;
+    }
+
+}
