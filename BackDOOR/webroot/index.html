@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMAGE Only Please!</title>
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+  <body>
+    <div id="root" class="app">
+
+      <header class="header">
+        <div class="header-left">
+          <img src="/assets/logo.jpg" alt="CyberVulnX" class="club-logo">
+        </div>
+        <div class="header-right">
+          <div class="lab-title">IMAGE Only Please!</div>
+          <div class="lab-status" id="labStatus">
+            <div class="status-box" id="statusBox"></div>
+            <span id="statusText">Not Solved</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="login-intro">
+        <div class="intro-meta">
+          <span>Internal Portal</span>
+          <span>&bull;</span>
+          <span>Restricted Access</span>
+        </div>
+
+        <h1 class="intro-title">CyberVulnX Image Upload Bypass</h1>
+
+        <p class="intro-text">
+          CyberVulnX exposes a <code>Profile Picture Upload</code> endpoint that only
+          accepts image files. The <code>jpg, jpeg, png, gif</code> restriction is
+          enforced client-side only.
+        </p>
+
+        <p class="intro-text">
+          Get a disallowed file saved into the server's files directory. Find the
+          flag hidden alongside it and submit it below.
+        </p>
+      </section>
+
+      <section class="login-section">
+
+        <div id="successBanner"></div>
+
+        <div class="login-header">
+          <h3>Profile Picture Upload</h3>
+          <button class="reset-btn" id="resetBtn">Reset Lab</button>
+        </div>
+
+        <div class="waf-status-card">
+          <div class="waf-status-accent"></div>
+          <div class="waf-status-body">
+
+            <div class="waf-status-row">
+              <span class="waf-status-label">Endpoint</span>
+              <span class="waf-status-value">/api/upload</span>
+            </div>
+
+            <div class="waf-status-row">
+              <span class="waf-status-label">Allowed types</span>
+              <span class="waf-status-value">jpg, jpeg, png, gif</span>
+            </div>
+
+            <div class="waf-status-row">
+              <span class="waf-status-label">Instructions</span>
+              <span style="font-size:.9rem;color:var(--text-secondary);line-height:1.6">
+                Upload a file to <code style="font-family:Consolas,monospace;color:var(--red)">/files/</code>
+                that bypasses the type restriction, then submit the flag you find.
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        <form class="login-form" id="uploadForm" style="margin-bottom:30px">
+          <div class="login-form-accent"></div>
+          <div class="login-form-body">
+            <div class="input-group">
+              <label for="fileInput">Profile Picture</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="17 8 12 3 7 8" />
+                    <line x1="12" y1="3" x2="12" y2="15" />
+                  </svg>
+                </span>
+                <input id="fileInput" type="file" name="file" accept=".jpg,.jpeg,.png,.gif" />
+              </div>
+              <p id="uploadResult" style="font-size:.85rem;margin-top:8px"></p>
+            </div>
+            <button type="submit" id="uploadBtn">Upload</button>
+          </div>
+        </form>
+
+        <form class="login-form" id="flagForm">
+          <div class="login-form-accent"></div>
+          <div class="login-form-body">
+            <div class="input-group">
+              <label for="flag"></label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                    <line x1="4" y1="22" x2="4" y2="15" />
+                  </svg>
+                </span>
+                <input id="flag" type="text" placeholder="FLAG{...}" autocomplete="off" />
+              </div>
+              <p id="flagError" style="color:var(--red);font-size:.85rem;margin-top:8px"></p>
+            </div>
+            <button type="submit" id="flagBtn">Submit Flag</button>
+          </div>
+        </form>
+
+      </section>
+
+      <footer class="footer">
+        <p>CyberVulnX &bull; IMAGE Only Please!</p>
+      </footer>
+
+    </div>
+    <script src="/assets/app.js"></script>
+  </body>
+</html>

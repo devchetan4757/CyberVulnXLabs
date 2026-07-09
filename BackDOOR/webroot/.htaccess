@@ -1,0 +1,20 @@
+RewriteEngine On
+
+# Map the frontend's extensionless API calls to the PHP scripts
+RewriteRule ^api/upload$ api/upload.php [L]
+RewriteRule ^api/reset$ api/reset.php [L]
+RewriteRule ^api/submit-flag$ api/submit-flag.php [L]
+
+# Force images under /files/ to download as an attachment instead of
+# rendering inline in the browser.
+<IfModule mod_headers.c>
+  <FilesMatch "^.*\.(jpg|jpeg|png|gif)$">
+    SetEnvIf Request_URI "^/files/" IS_FILES_DOWNLOAD
+    Header set Content-Disposition "attachment" env=IS_FILES_DOWNLOAD
+  </FilesMatch>
+</IfModule>
+
+# Everything else that isn't a real file falls back to the SPA shell
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

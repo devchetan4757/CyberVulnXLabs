@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fnuy-lab
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 10000
+    # No persistent disk attached on purpose: files/ (and any webshell
+    # dropped into it) is wiped clean on every restart/redeploy, which
+    # doubles as a free reset mechanism alongside api/reset.php.
