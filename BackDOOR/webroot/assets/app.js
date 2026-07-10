@@ -1,7 +1,7 @@
-const SOLVED_KEY  = "lab-solved";
-const SESSION_KEY = "lab-session-id";
+const SOLVED_KEY   = "lab-solved";
+const SESSION_KEY  = "lab-session-id";
+const PATH_KEY     = "lab-upload-path";
 
-// Generate or retrieve a persistent session ID for this browser
 function getSessionId() {
   let id = localStorage.getItem(SESSION_KEY);
   if (!id) {
@@ -32,7 +32,7 @@ const resetBtn      = document.getElementById("resetBtn");
 function renderSolved(solved) {
   if (solved) {
     labStatus.classList.add("solved");
-    statusBox.textContent = "✓";
+    statusBox.textContent  = "✓";
     statusText.textContent = "Solved";
     successBanner.innerHTML = `
       <div class="success-banner">
@@ -42,22 +42,32 @@ function renderSolved(solved) {
     flagForm.style.display = "none";
   } else {
     labStatus.classList.remove("solved");
-    statusBox.textContent = "";
+    statusBox.textContent  = "";
     statusText.textContent = "Not Solved";
     successBanner.innerHTML = "";
     flagForm.style.display = "";
   }
 }
 
+// Restore uploaded path if it exists from a previous load
+function restoreUploadPath() {
+  const saved = localStorage.getItem(PATH_KEY);
+  if (saved) {
+    uploadResult.style.color = "#27ae60";
+    uploadResult.innerHTML   = `Uploaded to <code>${saved}</code>`;
+  }
+}
+
 renderSolved(localStorage.getItem(SOLVED_KEY) === "true");
+restoreUploadPath();
 
 uploadForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const file = fileInput.files[0];
   if (!file) return;
 
-  uploadBtn.disabled = true;
-  uploadBtn.textContent = "Uploading...";
+  uploadBtn.disabled     = true;
+  uploadBtn.textContent  = "Uploading...";
   uploadResult.style.color = "var(--text-secondary)";
   uploadResult.textContent = "";
 
@@ -70,8 +80,9 @@ uploadForm.addEventListener("submit", async (e) => {
     const data = await res.json();
 
     if (data.success) {
+      localStorage.setItem(PATH_KEY, data.path);
       uploadResult.style.color = "#27ae60";
-      uploadResult.innerHTML = `Uploaded to <code>${data.path}</code>`;
+      uploadResult.innerHTML   = `Uploaded to <code>${data.path}</code>`;
     } else {
       uploadResult.style.color = "var(--red)";
       uploadResult.textContent = data.message || "Upload failed.";
@@ -81,7 +92,7 @@ uploadForm.addEventListener("submit", async (e) => {
     uploadResult.textContent = "Unable to reach the server.";
   }
 
-  uploadBtn.disabled = false;
+  uploadBtn.disabled    = false;
   uploadBtn.textContent = "Upload";
 });
 
@@ -90,7 +101,7 @@ flagForm.addEventListener("submit", async (e) => {
   const flag = flagInput.value.trim();
   if (!flag) return;
 
-  flagBtn.disabled = true;
+  flagBtn.disabled    = true;
   flagBtn.textContent = "Checking...";
   flagError.textContent = "";
 
@@ -112,7 +123,7 @@ flagForm.addEventListener("submit", async (e) => {
     flagError.textContent = "Unable to connect to server.";
   }
 
-  flagBtn.disabled = false;
+  flagBtn.disabled    = false;
   flagBtn.textContent = "Submit Flag";
 });
 
@@ -122,14 +133,13 @@ resetBtn.addEventListener("click", async () => {
   } catch (err) {
     console.error("Reset failed:", err);
   }
-  // Clear solved state and generate a fresh session ID
   localStorage.removeItem(SOLVED_KEY);
   localStorage.removeItem(SESSION_KEY);
-  fileInput.value     = "";
+  localStorage.removeItem(PATH_KEY);
+  fileInput.value          = "";
   uploadResult.textContent = "";
-  flagInput.value     = "";
-  flagError.textContent   = "";
+  flagInput.value          = "";
+  flagError.textContent    = "";
   renderSolved(false);
-  // Reload so new session ID is generated
   location.reload();
 });
