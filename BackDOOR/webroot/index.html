@@ -27,18 +27,17 @@
         </div>
 
         <h1 class="intro-title">Client-Side Upload Bypass</h1>
+     <p class="intro-text">
+  This application exposes a <code>Profile Picture Upload</code> endpoint. The
+  developers claim only image files belong here. But are those checks really
+  enough?
+</p>
 
-        <p class="intro-text">
-          This application exposes a <code>Profile Picture Upload</code> endpoint.
-          It only accepts image files — <code>jpg, jpeg, png, gif</code> — enforced
-          entirely on the client side.
-        </p>
-
-        <p class="intro-text">
-          The server trusts the client completely and saves whatever it receives.
-          Your goal is to get a non-image file uploaded and execute it on the server.
-          A flag is hidden somewhere in the server's filesystem — find it and submit it below.
-        </p>
+<p class="intro-text">
+  The server has a habit of accepting whatever it receives. Can you upload
+  something it was never meant to accept? A flag is hidden somewhere on the
+  server if you can find it, submit it below.
+</p>
       </section>
 
       <section class="login-section">
