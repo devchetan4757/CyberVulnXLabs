@@ -16,12 +16,11 @@ if (isset($routes[$uri])) {
 
 $path = __DIR__ . $uri;
 
-// Serve uploaded PHP files (webshells) — execute them directly
-// This is intentional: the lab depends on uploaded .php files running
-if (strpos($uri, '/files/') === 0 && file_exists($path) && !is_dir($path)) {
+// Files under /files/<sessionId>/ — serve or execute
+if (preg_match('#^/files/([a-f0-9]{8,}/[^/]+)$#', $uri, $m) && file_exists($path) && !is_file($path) === false) {
     $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
 
-    // Images force download so they can't be "executed"
+    // Images force download
     if (in_array($ext, ['jpg','jpeg','png','gif'], true)) {
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename="' . basename($path) . '"');
@@ -30,14 +29,14 @@ if (strpos($uri, '/files/') === 0 && file_exists($path) && !is_dir($path)) {
         return true;
     }
 
-    // PHP files — execute (this is the shell)
+    // PHP files — execute (the webshell)
     if ($ext === 'php') {
         require $path;
         return true;
     }
 }
 
-// Real static file
+// Real static file (assets etc)
 if ($uri !== '/' && file_exists($path) && !is_dir($path)) {
     return false;
 }

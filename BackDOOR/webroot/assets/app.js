@@ -1,23 +1,38 @@
-const SOLVED_KEY = "lab-solved";
+const SOLVED_KEY  = "lab-solved";
+const SESSION_KEY = "lab-session-id";
 
-const statusBox = document.getElementById("statusBox");
-const statusText = document.getElementById("statusText");
-const labStatus = document.getElementById("labStatus");
+// Generate or retrieve a persistent session ID for this browser
+function getSessionId() {
+  let id = localStorage.getItem(SESSION_KEY);
+  if (!id) {
+    id = Array.from(crypto.getRandomValues(new Uint8Array(8)))
+              .map(b => b.toString(16).padStart(2, '0'))
+              .join('');
+    localStorage.setItem(SESSION_KEY, id);
+  }
+  return id;
+}
+
+const sessionId = getSessionId();
+
+const statusBox     = document.getElementById("statusBox");
+const statusText    = document.getElementById("statusText");
+const labStatus     = document.getElementById("labStatus");
 const successBanner = document.getElementById("successBanner");
-const uploadForm = document.getElementById("uploadForm");
-const uploadBtn = document.getElementById("uploadBtn");
-const uploadResult = document.getElementById("uploadResult");
-const fileInput = document.getElementById("fileInput");
-const flagForm = document.getElementById("flagForm");
-const flagInput = document.getElementById("flag");
-const flagBtn = document.getElementById("flagBtn");
-const flagError = document.getElementById("flagError");
-const resetBtn = document.getElementById("resetBtn");
+const uploadForm    = document.getElementById("uploadForm");
+const uploadBtn     = document.getElementById("uploadBtn");
+const uploadResult  = document.getElementById("uploadResult");
+const fileInput     = document.getElementById("fileInput");
+const flagForm      = document.getElementById("flagForm");
+const flagInput     = document.getElementById("flag");
+const flagBtn       = document.getElementById("flagBtn");
+const flagError     = document.getElementById("flagError");
+const resetBtn      = document.getElementById("resetBtn");
 
 function renderSolved(solved) {
   if (solved) {
     labStatus.classList.add("solved");
-    statusBox.textContent = "\u2713";
+    statusBox.textContent = "✓";
     statusText.textContent = "Solved";
     successBanner.innerHTML = `
       <div class="success-banner">
@@ -49,8 +64,9 @@ uploadForm.addEventListener("submit", async (e) => {
   try {
     const body = new FormData();
     body.append("file", file);
+    body.append("sessionId", sessionId);
 
-    const res = await fetch("/api/upload", { method: "POST", body });
+    const res  = await fetch("/api/upload", { method: "POST", body });
     const data = await res.json();
 
     if (data.success) {
@@ -79,12 +95,11 @@ flagForm.addEventListener("submit", async (e) => {
   flagError.textContent = "";
 
   try {
-    const res = await fetch("/api/submit-flag", {
+    const res  = await fetch("/api/submit-flag", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ flag })
     });
-
     const data = await res.json();
 
     if (data.success) {
@@ -107,10 +122,14 @@ resetBtn.addEventListener("click", async () => {
   } catch (err) {
     console.error("Reset failed:", err);
   }
+  // Clear solved state and generate a fresh session ID
   localStorage.removeItem(SOLVED_KEY);
-  fileInput.value = "";
+  localStorage.removeItem(SESSION_KEY);
+  fileInput.value     = "";
   uploadResult.textContent = "";
-  flagInput.value = "";
-  flagError.textContent = "";
+  flagInput.value     = "";
+  flagError.textContent   = "";
   renderSolved(false);
+  // Reload so new session ID is generated
+  location.reload();
 });
