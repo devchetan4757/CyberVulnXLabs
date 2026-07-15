@@ -10,6 +10,7 @@ let board = Chessboard('board', {
 window.addEventListener('resize', () => board.resize());
 
 let sessionId = null;
+let yourColor = null;
 let awaitingClick = false;
 
 const startBtn = document.getElementById('startBtn');
@@ -208,6 +209,7 @@ startBtn.addEventListener('click', async () => {
   const data = await res.json();
 
   sessionId = data.session_id;
+  yourColor = data.color;
 
   board.position(data.start_fen);
   await wait(500);
@@ -224,7 +226,8 @@ claimBtn.addEventListener('click', async () => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      session_id: sessionId
+      session_id: sessionId,
+      color: yourColor
     })
   });
   const data = await res.json();
