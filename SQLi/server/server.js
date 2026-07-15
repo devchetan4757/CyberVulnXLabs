@@ -21,16 +21,16 @@ app.use("/api/login", loginRoute);
 app.use("/api/reset", resetRoute);
 
 // Serve frontend
-app.use(express.static(path.join(__dirname, "static")));
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 // fallback route (VERY IMPORTANT)
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "static", "index.html"));
+  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
 });
 
 // use Render port
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log("CyberVulnX SQLi Lab running on port", PORT);
+  console.log(" SQLi Lab running on port", PORT);
 });

@@ -4,7 +4,7 @@ import LoginForm from "./LoginForm";
 import LoginResponse from "./LoginResponse";
 import SuccessBanner from "./SuccessBanner";
 
-const SOLVED_KEY = "cybervulnx-solved";
+const SOLVED_KEY = "sqli-solved";
 
 
 export default function LoginSection({ solved, setSolved }) {

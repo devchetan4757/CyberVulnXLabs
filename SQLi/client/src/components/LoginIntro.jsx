@@ -3,18 +3,18 @@ export default function LoginIntro() {
     <section className="login-intro">
 
       <div className="intro-meta">
-        <span>Club Portal</span>
+        <span>Login Portal</span>
         <span>•</span>
         <span>Members Only</span>
       </div>
 
       <h1 className="intro-title">
-        CyberVulnX Member Login
+         Member Login
       </h1>
 
       <p className="intro-text">
-        Welcome to the CyberVulnX members' portal.
-        Club members can securely log in to access
+        Welcome to the Vuln members' portal.
+        Members can securely log in to access
         workshop resources, lab writeups, and event
         updates.
       </p>
@@ -27,7 +27,7 @@ export default function LoginIntro() {
       </p>
 
       <p className="intro-text">
-        Only registered CyberVulnX members should be
+        Only registered Vuln members should be
         able to authenticate successfully.
       </p>
 
