@@ -9,8 +9,8 @@ GAMES = {}
 FLAG = "FLAG{REWARD_haha}"
 
 START_FEN = "3r3k/6pp/8/6N1/8/1Q6/8/2K5 w - - 0 1"
-FEN_AFTER_NF7 = "3r3k/5Npp/8/8/8/1Q6/8/2K5 b - - 0 1"       
-FEN_AFTER_KG8 = "3r2k1/5Npp/8/8/8/1Q6/8/2K5 w - - 0 1"       
+FEN_AFTER_NF7 = "3r3k/5Npp/8/8/8/1Q6/8/2K5 b - - 0 1"
+FEN_AFTER_KG8 = "3r2k1/5Npp/8/8/8/1Q6/8/2K5 w - - 0 1"
 FEN_AFTER_NH6 = "3r2k1/6pp/7N/8/8/1Q6/8/2K5 b - - 0 1"
 
 BRANCH = {
@@ -169,7 +169,7 @@ def claim_flag():
     if not game:
         return jsonify({"error": "invalid or expired session_id"}), 400
 
-    your_color = "black" if game["black"] == "player" else "white"
+    your_color = data.get("color") or ("black" if game["black"] == "player" else "white")
 
     if your_color == game["winner_color"]:
         game["claimed"] = True
