@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <p>
-        CyberVulnX • Hash Identification Lab
+        Hash Identification Lab
       </p>
     </footer>
   );

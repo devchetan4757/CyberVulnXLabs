@@ -4,7 +4,7 @@ import AnswerForm from "./AnswerForm";
 import AnswerResponse from "./AnswerResponse";
 import SuccessBanner from "./SuccessBanner";
 
-const SOLVED_KEY = "cybervulnx-solved";
+const SOLVED_KEY = "hashhunt-solved";
 
 export default function AnswerSection({ solved, setSolved }) {
   const [message, setMessage] = useState("");

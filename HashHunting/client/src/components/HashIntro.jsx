@@ -7,7 +7,7 @@ export default function HashIntro() {
 
 
       <h1 className="intro-title">
-        CyberVulnX Hash Identification Lab
+        Hash Identification Lab
       </h1>
 
       <p className="intro-text">

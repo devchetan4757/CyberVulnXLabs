@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const [solved, setSolved] = useState(
-    localStorage.getItem("cybervulnx-solved") === "true"
+    localStorage.getItem("hashhunt-solved") === "true"
   );
 
   return (

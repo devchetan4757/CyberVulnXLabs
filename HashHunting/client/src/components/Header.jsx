@@ -1,14 +1,10 @@
-import logo from "../static/logo.jpg";
-
 export default function Header({ solved }) {
   return (
     <header className="header">
       <div className="header-left">
-        <img
-          src={logo}
-          alt="CyberVulnX"
-          className="club-logo"
-        />
+        <span className="club-logo" role="img" aria-label="lab icon">
+          🔐
+        </span>
       </div>
 
       <div className="header-right">
