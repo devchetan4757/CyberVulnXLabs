@@ -1,4 +1,4 @@
-# CyberVulnX — AI Prompt Injection Lab
+# AI Prompt Injection Lab
 
 A CTF-style lab where an AI assistant ("VaultBot") is told to guard a secret
 flag and never reveal it. The user wins by crafting a prompt that gets the

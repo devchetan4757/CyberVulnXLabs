@@ -9,7 +9,7 @@ function App() {
   const [solved, setSolved] =
     useState(
       localStorage.getItem(
-        "cybervulnx-promptleak-solved"
+        "promptleak-solved"
       ) === "true"
     );
 

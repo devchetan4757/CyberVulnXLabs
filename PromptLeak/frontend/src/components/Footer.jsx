@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <p>
-        CyberVulnX • BK Birla College
+         • BK Birla College
       </p>
     </footer>
   );

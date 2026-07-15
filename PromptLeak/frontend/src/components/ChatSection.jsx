@@ -3,9 +3,9 @@ import ChatInput from "./ChatInput";
 import ChatBubble from "./ChatBubble";
 import SuccessBanner from "./SuccessBanner";
 
-const MESSAGES_KEY = "cybervulnx-promptleak-messages";
-const SOLVED_KEY = "cybervulnx-promptleak-solved";
-const FLAG_KEY = "cybervulnx-promptleak-flag";
+const MESSAGES_KEY = "promptleak-messages";
+const SOLVED_KEY = "promptleak-solved";
+const FLAG_KEY = "promptleak-flag";
 
 const INTRO_MESSAGE = {
   role: "bot",
