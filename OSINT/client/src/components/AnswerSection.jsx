@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SuccessBanner from "./SuccessBanner";
 
-const SOLVED_KEY = "cybervulnx-solved";
+const SOLVED_KEY = "osint-solved";
 
 export default function AnswerSection({ solved, setSolved }) {
   const [game, setGame] = useState("");

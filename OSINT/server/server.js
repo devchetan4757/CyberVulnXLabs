@@ -27,5 +27,5 @@ app.use((req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log("CyberVulnX OSINT Lab — The Haunted Trail running on port", PORT);
+  console.log( "OSINT Lab — The Haunted Trail running on port", PORT);
 });
