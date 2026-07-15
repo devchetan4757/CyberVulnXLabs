@@ -20,7 +20,7 @@ BRANCH = {
         "fen_after_bot": "3r1k2/5Qpp/7N/8/8/8/8/2K5 b - - 0 1",
         "mate": True,
         "mate_type": "direct",
-        "message": "2...Kf8 3.Qf7# — the queen lands next to the king, protected by the knight on h6, covering every flight square at once. Checkmate.",
+        "message": "Queen's Mate",
         "next_legal": [],
     },
     "h8": {
@@ -29,7 +29,7 @@ BRANCH = {
         "fen_after_bot": "3r2Qk/6pp/7N/8/8/8/8/2K5 b - - 0 1",
         "mate": False,
         "mate_type": None,
-        "message": "2...Kh8 3.Qg8+!! The queen sacrifices herself, protected by the knight on h6. The rook has only one legal reply.",
+        "message": "The rook has only one legal move",
         "next_legal": ["g8"],
     },
 }
@@ -39,7 +39,7 @@ SMOTHERED_FINISH = {
     "fen_after_player": "6rk/6pp/7N/8/8/8/8/2K5 w - - 0 1",
     "bot_move": {"from": "h6", "to": "f7", "san": "Nf7#"},
     "fen_after_bot": "6rk/5Npp/8/8/8/8/8/2K5 b - - 0 1",
-    "message": "3...Rxg8 4.Nf7# — smothered mate. The king is boxed in by its own rook and pawns, and nothing can capture the knight.",
+    "message": "Smothered Mate",
 }
 
 
