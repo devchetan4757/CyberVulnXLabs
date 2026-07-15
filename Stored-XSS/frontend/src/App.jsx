@@ -8,7 +8,7 @@ function App() {
   const [solved, setSolved] =
     useState(
       localStorage.getItem(
-        "cybervulnx-solved"
+        "xss-solved"
       ) === "true"
     );
 

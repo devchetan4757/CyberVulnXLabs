@@ -3,9 +3,9 @@ import CommentForm from "./CommentForm";
 import CommentCard from "./CommentCard";
 import SuccessBanner from "./SuccessBanner";
 
-const COMMENTS_KEY = "cybervulnx-comments";
-const SOLVED_KEY = "cybervulnx-solved";
-const ALERTS_KEY = "cybervulnx-alerts";
+const COMMENTS_KEY = "comments";
+const SOLVED_KEY = "xss-solved";
+const ALERTS_KEY = "alerts";
 
 export default function CommentSection({ solved, setSolved }) {
   const [comments, setComments] = useState([]);

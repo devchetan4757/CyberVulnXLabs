@@ -1,18 +1,18 @@
 const article = {
   title: "Web Security Workshop Recap",
 
-  author: "CyberVulnX Team",
+  author: "Security Team",
 
   date: "June 2026",
 
   content: [
-    `CyberVulnX recently conducted a workshop focused on web application security and secure development practices. Students were introduced to common security concepts and learned how modern applications handle user interactions.`,
+    `A recent workshop focused on web application security and secure development practices. Attendees were introduced to common security concepts and learned how modern applications handle user interactions.`,
 
-    `The session covered authentication fundamentals, client-side security, secure coding practices and the importance of validating user-controlled input. Members also explored how security researchers identify weaknesses during assessments.`,
+    `The session covered authentication fundamentals, client-side security, secure coding practices and the importance of validating user-controlled input. Attendees also explored how security researchers identify weaknesses during assessments.`,
 
-    `Participants were encouraged to continue developing practical skills through hands-on learning, security research and capture-the-flag exercises. The club plans to host additional workshops covering digital forensics, cloud security and incident response.`,
+    `Participants were encouraged to continue developing practical skills through hands-on learning, security research and capture-the-flag exercises. Additional workshops are planned covering digital forensics, cloud security and incident response.`,
 
-    `CyberVulnX continues to provide students with opportunities to learn, collaborate and develop technical skills in cybersecurity through regular events and community activities.`
+    `These sessions continue to give participants opportunities to learn, collaborate and develop technical skills in cybersecurity through regular events and community activities.`
   ]
 };
 
